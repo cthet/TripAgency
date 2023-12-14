@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: cth
+      changes:
+        - createTable:
+            tableName: trip
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: departure
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: destination
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: ticket_price
+                  type: NUMERIC(10,2)
+                  constraints:
+                    nullable: false

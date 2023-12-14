@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: cth
+      changes:
+      - sqlFile:
+          encoding: utf8
+          endDelimiter: \nGO
+          path: sql/insert_trips.sql
+          relativeToChangelogFile: true
+          splitStatements: true
+          stripComments: true

@@ -1,0 +1,1 @@
+INSERT INTO TICKET_FEES (id, travel_fees, agency_fees, trip_id) VALUES (1, 200, 50, 1);

@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: cth
+      changes:
+        - createTable:
+            tableName: ticket_fees
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: travel_fees
+                  type: NUMERIC(10,2)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: agency_fees
+                  type: NUMERIC(10,2)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: trip_id
+                  type: bigint
+                  constraints:
+                    nullable: false

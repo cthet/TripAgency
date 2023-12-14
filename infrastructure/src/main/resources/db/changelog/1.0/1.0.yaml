@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/1.0/1_CREATE_TABLE_TRIP.yaml
+  - include:
+      file: db/changelog/1.0/2_CREATE_TABLE_TICKETFEES.yaml
+  - include:
+      file: db/changelog/1.0/3_INSERT_TRIPS.yaml
+  - include:
+      file: db/changelog/1.0/4_INSERT_TICKET_FEES.yaml

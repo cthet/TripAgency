@@ -1,0 +1,30 @@
+version: '3.8'
+networks:
+  tripagency-compose:
+services:
+  tripagency:
+    image: tripagency
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+        - "12378:12378"
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: postgres
+    restart: unless-stopped
+    environment:
+        POSTGRES_USER: my-trip-user
+        POSTGRES_PASSWORD: my-trip-pwd
+        POSTGRES_DB: my-trip-db
+    volumes:
+        - ./postgres:/var/lib/postgresql/data
+    ports:
+        - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U my-trip-user" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
