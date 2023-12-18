@@ -45,24 +45,11 @@ public class TripResource {
         return priceTrip(departure, destination, RepositoryType.JDBC_TEMPLATE);
     }
 
-    @GetMapping("/simple")
-    public ResponseEntity<SimpleResponse> getSimpleResponse() {
-        SimpleResponse response = new SimpleResponse("Ceci est un message simple");
-        return ResponseEntity.ok(response);
-    }
-
     private ResponseEntity<BigDecimal> priceTrip(final String departure, final String destination,
                                               final RepositoryType repositoryType) {
 
         BigDecimal travelPrice = priceComputorDriverPort.priceTravel(departure, destination, repositoryType);
         return new ResponseEntity<>(travelPrice, HttpStatus.OK);
     }
-    public class SimpleResponse {
-        private String message;
 
-        public SimpleResponse(String message) {
-            this.message = message;
-        }
-
-    }
 }
